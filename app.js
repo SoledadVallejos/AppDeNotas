@@ -17,7 +17,36 @@ switch (comando) {
             });
         }
         break;
-
+    case "agregar":
+        let titulo = process.argv[3];
+        let estado = process.argv[4];
+        moduloTareas.escribirJSON(titulo, estado);
+        break;
+    case "deshacer":
+        moduloTareas.deshacerJSON()
+        break;
+    case "filtrar":
+        let estado2 = process.argv[3];
+        let tareasFiltradas = moduloTareas.filtrar(estado2);
+        if (tareasFiltradas.length === 0) {
+            console.log("La lista de tareas esta vacia")
+        } else {
+            console.log("----------------------------")
+            console.log("Este es tu listado de tareas")
+            console.log("----------------------------")
+            for (let i = 0; i < tareasFiltradas.length; i++) {
+                console.log("Título: " + tareasFiltradas[i].titulo + " - estado: " + tareasFiltradas[i].estado);
+            }
+        }
+        break;
+    case "crear":
+        let nombreTarea = process.argv[3];
+        let nombreTitulo = {
+            titulo: nombreTarea,
+            estado: "pendiente"
+        };
+        moduloTareas.crear(nombreTitulo);
+        break;
     case undefined:
         console.log("Atencion - Tienes que pasar una accion");
         break;
