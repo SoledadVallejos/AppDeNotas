@@ -18,6 +18,12 @@ module.exports = moduloTareas = {
         let nuevoJSON = JSON.stringify(info, null, 2);
         fs.writeFileSync('./tareas.json', nuevoJSON, 'utf-8')
     },
+    deshacerJSON : () => {
+        let tareas = moduloTareas.leerJSON();
+        console.log(typeof(tareas));
+        tareas.pop();
+        moduloTareas.guardarJSON(tareas)
+    },
     filtrar: (estado) => {
         let tareas = moduloTareas.leerJSON();
         let tareasFiltradas = tareas.filter(tarea => {

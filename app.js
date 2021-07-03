@@ -35,7 +35,7 @@ switch (comando) {
             console.log("Este es tu listado de tareas")
             console.log("----------------------------")
             for (let i = 0; i < tareasFiltradas.length; i++) {
-                console.log("Título: " + tareasFiltradas[i].titulo + " - estado: " + tareasFiltradas[i].estado);
+                console.log("Título: " + tareasFiltradas[i].titulo + " - Estado: " + tareasFiltradas[i].estado);
             }
         }
         break;
